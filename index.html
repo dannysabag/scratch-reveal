@@ -69,7 +69,7 @@
 
         /* Popup styles */
         .popup {
-            position: fixed;
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -107,7 +107,7 @@
             // Show popup on startup
             const popup = document.createElement("div");
             popup.className = "popup";
-            popup.textContent = "Ready for a surprise?";
+            popup.textContent = "Ready for a cool surprise?";
             document.body.appendChild(popup);
 
             // Set timeout to hide the popup after 5 seconds
