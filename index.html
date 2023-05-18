@@ -22,6 +22,9 @@
             height: 100vh;
             max-height: 800px;
             perspective: 1000px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .card-inner {
@@ -30,10 +33,11 @@
             height: 100%;
             transform-style: preserve-3d;
             transition: transform 0.5s;
+            transform: rotateY(180deg);
         }
 
         .card.flipped .card-inner {
-            transform: rotateY(180deg);
+            transform: rotateY(0deg);
         }
 
         .card-front,
@@ -42,47 +46,43 @@
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
         }
 
         .card-front {
-            background-color: #f2f2f2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: rotateY(0deg);
+            background-color: #3498db;
         }
 
         .card-back {
-            background-color: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #2ecc71;
             transform: rotateY(180deg);
         }
 
         .card-image {
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             object-position: center;
         }
 
-         /* Popup styles */
-         .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 40px;
-            background-color: #fff;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-            text-align: center;
-            font-size: 24px;
-            line-height: 1.5;
-            max-width: 80%;
+        /* Animation styles */
+        .card-inner {
+            animation: flip 2s;
+        }
+
+        @keyframes flip {
+            0% {
+                transform: rotateY(180deg);
+            }
+            100% {
+                transform: rotateY(0deg);
+            }
         }
 
         /* Responsive styles for different screen sizes */
